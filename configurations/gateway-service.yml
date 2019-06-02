@@ -9,6 +9,6 @@ eureka:
 zuul:
   routes:
     client:
-      path: /client/**
+      path: /api/client/**
  #     serviceId: config-client
-      url: http://loclahost:8981/config-client/client/
+      url: http://loclahost:8081/
