@@ -5,3 +5,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  prefix: /api
+  routes:
+    account:
+      path: /config-client/**
+      serviceId: config-client
