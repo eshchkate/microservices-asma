@@ -5,6 +5,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/eshchkate/microservices-asma/config-service
-
+          uri: https://github.com/eshchkate/microservices-asma.git
+          searchPaths: '{config-service}'
 
