@@ -9,6 +9,5 @@ eureka:
 zuul:
   routes:
     client:
-      path: /api/client/**
-      serviceId: config-client
+      url=http://localhost:8081:
 
