@@ -9,6 +9,6 @@ eureka:
 zuul:
   prefix: /api
   routes:
-    account:
+    config-client:
       path: /config-client/**
       serviceId: config-client
