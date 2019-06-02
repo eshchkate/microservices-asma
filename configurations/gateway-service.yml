@@ -8,6 +8,6 @@ eureka:
 
 zuul:
   routes:
-    student-service:
-      path: /student-api/**
-      serviceId: STUDENT-SERVICE
+    config-client:
+      path: /config-client/**
+      serviceId: config-client
