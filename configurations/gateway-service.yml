@@ -10,5 +10,5 @@ zuul:
   routes:
     client:
       path: /api/client/**
- #     serviceId: config-client
-      url: http://loclahost:8081/
+      serviceId: config-client
+
