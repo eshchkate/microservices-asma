@@ -11,19 +11,9 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
-management:
-  endpoint:
-    routes:
-      enabled: true
-
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
 zuul:
-#  prefix: /api
+  prefix: /api
   routes:
     config-client:
       path: /client/**
-      serviceId: CONFIG_CLIENT
+      serviceId: config-client
