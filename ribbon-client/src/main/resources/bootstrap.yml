@@ -1,8 +1,7 @@
-server:
-  port: 9000
 spring:
   application:
-    name: config-client
+    name: ribbon-client
   cloud:
     config:
       uri: http://localhost:8980
+
