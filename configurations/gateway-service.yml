@@ -21,8 +21,13 @@ management:
     web:
       exposure:
         include: "*"
+
+
 zuul:
   routes:
     config-client:
       path: /config-client/**
       serviceId: config-client
+    ribbon-client:
+      path: /ribbon-client/**
+      serviceId: ribbon-client
