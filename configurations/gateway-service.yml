@@ -13,10 +13,10 @@ eureka:
 
 
 management:
-  endpoint:
-    routes:
-      enabled: true
-
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 zuul:
   routes:
     config-client:
