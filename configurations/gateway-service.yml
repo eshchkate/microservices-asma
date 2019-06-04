@@ -15,4 +15,4 @@ zuul:
   routes:
     config-client:
       path: /config-client/**
-      serviceId: config-client
+      url: http://localhost:8762/microservices-asma/config-client
