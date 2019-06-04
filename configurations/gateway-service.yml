@@ -13,12 +13,16 @@ eureka:
 
 
 management:
+  endpoint:
+    routes:
+      enabled: true
+
   endpoints:
     web:
       exposure:
         include: "*"
 zuul:
   routes:
-    config-client:
-      path: /client/**
-      serviceId: config-client
+    config-service:
+      path: /config/**
+      serviceId: config-service
