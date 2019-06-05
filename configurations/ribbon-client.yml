@@ -5,6 +5,16 @@ ribbon:
   eureka:
     enabled: true
 
+hystrix:
+  metrics:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:
+
 eureka:
   client:
     serviceUrl:
