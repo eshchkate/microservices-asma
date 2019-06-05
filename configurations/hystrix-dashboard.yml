@@ -15,7 +15,3 @@ management:
     web:
       exposure:
         include=*:
-
-turbine:
-  app-config: RIBBON-CLIENT
-  cluster-name-expression: new String("default")
