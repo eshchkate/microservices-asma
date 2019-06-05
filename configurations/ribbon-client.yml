@@ -5,6 +5,11 @@ ribbon:
   eureka:
     enabled: true
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
 hystrix:
   metrics:
     enabled: true
@@ -14,8 +19,3 @@ management:
     web:
       exposure:
         include=*:
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
