@@ -6,3 +6,11 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
+hystrix:
+  enabled: true
+
+turbine:
+  aggregator:
+    cluster-config: RIBBON-CLIENT
+  app-config: RIBBON-CLIENT
+
