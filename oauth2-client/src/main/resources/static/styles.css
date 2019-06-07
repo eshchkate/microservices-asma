@@ -1,0 +1,13 @@
+body {
+    font-family: "Times New Roman", Georgia, Serif, sans-serif;
+    font-size: small;
+}
+
+p.error {
+    font-weight: bold;
+    color: red;
+}
+
+div.logout {
+    float: right;
+}
