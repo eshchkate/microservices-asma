@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+
+spring:
+  thymeleaf:
+    cache: false
+  application:
+    name: oauth2-client
+
+security:
+  oauth2:
+    client:
+      data-app-client:
+        client-id: oAuthClientAppID
+        client-secret: secret
+        user-authorization-uri: http://localhost:8082/oauth-server/oauth/authorize
+        access-token-uri: http://localhost:8082/oauth-server/oauth/token
+        scope: data, read
+        pre-established-redirect-uri: http://localhost:8080/data/index
+
+data:
+  base-uri: http://localhost:8081/oauth-resource/data
