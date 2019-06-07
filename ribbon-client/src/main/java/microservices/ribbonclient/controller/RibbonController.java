@@ -23,7 +23,7 @@ public class RibbonController {
     public String callService() {
 //        if (RandomUtils.nextBoolean())
 //            throw new RuntimeException("Failed!");
-        return restTemplate.getForEntity("http://config-client", String.class).getBody();
+        return restTemplate.getForEntity("http://client-service", String.class).getBody();
     }
 
     public String getFallbackConfigClient() {
