@@ -22,9 +22,9 @@ management:
 
 zuul:
   routes:
-    config-client:
-      path: /config-client/**
-      serviceId: config-client
+    client-service:
+      path: /client-service/**
+      serviceId: client-service
     ribbon-client:
       path: /ribbon-client/**
       serviceId: ribbon-client
