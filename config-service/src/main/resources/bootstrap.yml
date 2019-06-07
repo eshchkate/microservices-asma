@@ -9,4 +9,3 @@ spring:
         git:
           uri: https://github.com/eshchkate/microservices-asma.git
           search-paths: configurations
-

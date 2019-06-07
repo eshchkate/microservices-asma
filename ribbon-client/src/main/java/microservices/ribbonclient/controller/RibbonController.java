@@ -21,13 +21,24 @@ public class RibbonController {
             })
     @RequestMapping("/")
     public String callService() {
-        if (RandomUtils.nextBoolean())
-            throw new RuntimeException("Failed!");
+//        if (RandomUtils.nextBoolean())
+//            throw new RuntimeException("Failed!");
         return restTemplate.getForEntity("http://config-client", String.class).getBody();
     }
 
     public String getFallbackConfigClient() {
         return "Service is unavailable";
+    }
+
+    @HystrixCommand(fallbackMethod = "getFallbackConfigClient2")
+    @RequestMapping("/rest")
+    public String callService2() {
+        if (RandomUtils.nextBoolean())
+            throw new RuntimeException("Failed!");
+        return "LOL";
+    }
+    public String getFallbackConfigClient2() {
+        return "NO LOL";
     }
 
 }
