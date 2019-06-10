@@ -5,7 +5,6 @@ eureka:
  #   instance:
  #     prefer-ip-address: true
 
-app:
-  id: ${random.uuid}
+
 
 
