@@ -1,6 +1,5 @@
 package microservices.oauth2client.controller;
 
-import microservices.oauth2client.model.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +19,7 @@ public class SecuredController {
     @Qualifier("dataAppRestTemplate")
     private OAuth2RestTemplate dataAppRestTemplate;
 
+
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public String root() {
         return "redirect:/data/index";
@@ -27,9 +27,9 @@ public class SecuredController {
 
     @RequestMapping(value = "/data/index", method = RequestMethod.GET)
     @ResponseBody
-    public Data[] index() {
-        Data[] datas = dataAppRestTemplate.getForObject(dataApiBaseUri, Data[].class);
-
-        return datas;
+    public String index() {
+        String data = dataAppRestTemplate.getForObject(dataApiBaseUri, String.class);
+        return data;
     }
+
 }

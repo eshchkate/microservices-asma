@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class MessageController {
 
-    @Value("${app.id}")
-    String instance;
+    @Value("${server.port}")
+    String port;
 
     @GetMapping("/")
     public String message() {
-        return "Hi, I am <3   " + instance;
+        return "Hi, my port " + port;
     }
 }

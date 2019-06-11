@@ -18,8 +18,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/css/**", "/index").permitAll()
-                .antMatchers("/secured/**").hasRole("USER")
-                .antMatchers("/messaging/**").hasRole("USER")
+                .antMatchers("/secured/**").hasRole("ADMIN")
+                .antMatchers("/messaging/**").hasRole("ADMIN")
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login-error");
     }
@@ -28,8 +28,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder.encode("password")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder.encode("password")).roles("USER", "ADMIN");
+                .withUser("admin").password(passwordEncoder.encode("1")).roles("ADMIN");
     }
 }
+

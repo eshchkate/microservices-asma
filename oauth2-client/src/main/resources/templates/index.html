@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}"/>
 </head>
 <body>
 <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+    <label>Welcome</label>:
+    <span sec:authentication="name"></span><br>
+    <label>Assigned roles</label>:
+    <span sec:authentication="principal.authorities"></span>
     <div>
         <form action="#" th:action="@{/logout}" method="post">
-            <input type="submit" value="Logout"/>
+            <input type="submit" value="Log out"/>
         </form>
     </div>
 </div>
-
-<p>Authorization in the <a href="/secured/index" th:href="@{/secured/index}">system</a></p>
+<h5>ASMA</h5>
+<p><a href="/secured/index" th:href="@{/secured/index}">Sing in</a></p>
 </body>
 </html>

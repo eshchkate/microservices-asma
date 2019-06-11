@@ -9,5 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class Oauth2ClientApplicationTests {
 
+    @Test
+    public void contextLoads() {
+    }
 
 }

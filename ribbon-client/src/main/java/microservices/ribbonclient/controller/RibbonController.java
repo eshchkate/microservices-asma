@@ -4,6 +4,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +14,9 @@ public class RibbonController {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Value("${server.port}")
+    String port;
 
     @HystrixCommand(fallbackMethod = "getFallbackConfigClient",
             commandProperties = {
@@ -35,10 +39,11 @@ public class RibbonController {
     public String callService2() {
         if (RandomUtils.nextBoolean())
             throw new RuntimeException("Failed!");
-        return "LOL";
+        return "Success " + port;
     }
+
     public String getFallbackConfigClient2() {
-        return "NO LOL";
+        return "Fail" + port;
     }
 
 }

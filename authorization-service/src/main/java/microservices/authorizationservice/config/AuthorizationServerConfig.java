@@ -42,7 +42,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .withClient("oAuthClientAppID")
                 .secret(passwordEncoder().encode("secret"))
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token")
-                .scopes("data", "read")
+                .scopes("data")
                 .accessTokenValiditySeconds(3600)
                 .refreshTokenValiditySeconds(2592000)
                 .redirectUris("http://localhost:8080/data/", "http://localhost:8080/data/index");

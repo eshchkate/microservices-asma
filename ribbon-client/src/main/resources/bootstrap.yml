@@ -1,9 +1,9 @@
 spring:
   application:
     name: ribbon-client
-  cloud:
-    config:
-      uri: http://localhost:8980
+#  cloud:
+#    config:
+#      uri: http://localhost:8980
   main:
     allow-bean-definition-overriding: true
   zipkin:
@@ -13,4 +13,31 @@ spring:
       probability: 1
 server:
   port: 8088
+
+###########
+
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+hystrix:
+  metrics:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+turbine:
+  aggregator:
+    cluster-config: RIBBON-CLIENT
+  app-config: RIBBON-CLIENT
+
 

@@ -9,3 +9,10 @@ spring:
         git:
           uri: https://github.com/eshchkate/microservices-asma.git
           search-paths: configurations
+  #      native:
+  #        search-locations: C:\Users\Asususer\Desktop\configurations
+
+  profiles:
+    active: native
+
+

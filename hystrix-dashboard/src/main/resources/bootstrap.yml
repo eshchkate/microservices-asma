@@ -1,6 +1,22 @@
 spring:
   application:
     name: hystrix-dashboard
-  cloud:
-    config:
-      uri: http://localhost:8980
+#  cloud:
+#    config:
+#      uri: http://localhost:8980
+############
+server:
+  port: 8788
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+hystrix:
+  enabled: true
+
+turbine:
+  aggregator:
+    cluster-config: RIBBOsN-CLIENT
+  app-config: RIBBON-CLIENT

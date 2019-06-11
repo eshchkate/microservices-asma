@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<<head>
+<head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}"/>
 </head>
 <body>
 <div th:replace="index::logout"></div>
-<p><a href="/data" th:href="@{/data}">Resource Service</a></p>
-<br>
+<h5>Client application secured page</h5>
+<p><a href="/data" th:href="@{/data}">Secured resource server</a></p>
 <p>You will be redirected to authorization server for entering credentials</p>
-<br>
-<p><a href="/index" th:href="@{/index}">Come back</a></p>
+<p>Back to <a href="/index" th:href="@{/index}">main page</a></p>
 </body>
 </html>

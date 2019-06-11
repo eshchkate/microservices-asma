@@ -1,6 +1,45 @@
 spring:
   application:
     name: gateway-service
-  cloud:
-    config:
-      uri: http://localhost:8980
+#  cloud:
+#   config:
+#      uri: http://localhost:8980
+  main:
+    allow-bean-definition-overriding: true
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1
+
+##########
+server:
+  port: 8762
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoint:
+    routes:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+zuul:
+  routes:
+    client-service:
+      path: /client-service/**
+      serviceId: client-service
+    ribbon-client:
+      path: /ribbon-client/**
+      serviceId: ribbon-client

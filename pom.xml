@@ -17,7 +17,9 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
     <modules>
+        <module>admin-service</module>
         <module>authorization-service</module>
         <module>client-service</module>
         <module>config-service</module>
