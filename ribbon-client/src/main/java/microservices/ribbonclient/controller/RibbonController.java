@@ -18,32 +18,53 @@ public class RibbonController {
     @Value("${server.port}")
     String port;
 
-    @HystrixCommand(fallbackMethod = "getFallbackConfigClient",
-            commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"),
-                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")
-            })
+    @HystrixCommand(fallbackMethod = "getFallbackConfigClient"
+//            ,commandProperties = {
+//                   @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"),
+//                   @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")
+//            }
+            )
     @RequestMapping("/")
-    public String callService() {
-//        if (RandomUtils.nextBoolean())
-//            throw new RuntimeException("Failed!");
-        return restTemplate.getForEntity("http://client-service", String.class).getBody();
+    public String call() {
+        return restTemplate.getForEntity("http://client-service//greeting", String.class).getBody();
     }
-
     public String getFallbackConfigClient() {
         return "Service is unavailable";
     }
 
-    @HystrixCommand(fallbackMethod = "getFallbackConfigClient2")
+    @HystrixCommand(fallbackMethod = "getFallbackClient")
     @RequestMapping("/rest")
+    public String callService() {
+        if (RandomUtils.nextBoolean())
+            throw new RuntimeException("Failed!");
+        return "Success " + port;
+    }
+
+    public String getFallbackClient() {
+        return "Fail" + port;
+    }
+
+    @HystrixCommand(fallbackMethod = "getFallbackClient2")
+    @RequestMapping("/rest2")
     public String callService2() {
         if (RandomUtils.nextBoolean())
             throw new RuntimeException("Failed!");
         return "Success " + port;
     }
 
-    public String getFallbackConfigClient2() {
+    public String getFallbackClient2() {
         return "Fail" + port;
     }
 
+    @HystrixCommand(fallbackMethod = "getFallbackClient3")
+    @RequestMapping("/rest3")
+    public String callService3() {
+        if (RandomUtils.nextBoolean())
+            throw new RuntimeException("Failed!");
+        return "Success " + port;
+    }
+
+    public String getFallbackClient3() {
+        return "Fail" + port;
+    }
 }

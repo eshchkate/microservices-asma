@@ -23,20 +23,14 @@ import java.util.List;
 
 @RestController
 public class TestDataController {
-
     private final static Logger logger = LoggerFactory.getLogger(TestDataController.class);
-
     private TestDataRepo testDataRepo;
-
     @Autowired
     public TestDataController(TestDataRepo testDataRepo) {
         this.testDataRepo = testDataRepo;
     }
-
-
     @RequestMapping("/json")
     public void json() {
-
         File jsonFile = null;
         try {
             jsonFile = ResourceUtils.getFile("classpath:testdata.json");
@@ -44,20 +38,15 @@ public class TestDataController {
             e.printStackTrace();
         }
         ObjectMapper objectMapper = new ObjectMapper();
-
         try {
             List<TestData> testData = objectMapper.readValue(jsonFile, new TypeReference<List<TestData>>() {
             });
-
             testDataRepo.saveAll(testData);
-
             logger.info("All records saved");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("#oauth2.hasScope('data')")
@@ -65,14 +54,4 @@ public class TestDataController {
         String str = testDataRepo.findAll().toString();
         return str;
     }
-
-/*
-/*
-    @RequestMapping(value = "/data", method = RequestMethod.GET)
-    @ResponseBody
-    @PreAuthorize("#oauth2.hasScope('data')")
-    public String getData() {
-        return testDataRepo.findAll().toString();
-    }
-*/
 }

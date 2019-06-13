@@ -11,6 +11,11 @@ spring:
   sleuth:
     sampler:
       probability: 1
+#  boot:
+  #  admin:
+  #    client:
+  #      url: http://localhost:8888
+
 server:
   port: 8088
 

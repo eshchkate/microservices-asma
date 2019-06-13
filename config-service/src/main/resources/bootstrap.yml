@@ -11,7 +11,10 @@ spring:
           search-paths: configurations
   #      native:
   #        search-locations: C:\Users\Asususer\Desktop\configurations
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
   profiles:
     active: native
 

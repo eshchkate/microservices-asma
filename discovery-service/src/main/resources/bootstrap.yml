@@ -4,7 +4,10 @@ spring:
 #  cloud:
 #    config:
 #      uri: http://localhost:8980
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
 ###########
 server:
   port: 8761

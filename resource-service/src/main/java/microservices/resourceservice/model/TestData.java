@@ -8,13 +8,10 @@ public class TestData {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
    private String someData1;
    private String someData2;
-
     public TestData() {
     }
-
     public Integer getId() {
         return id;
     }
@@ -34,11 +31,9 @@ public class TestData {
     public String getSomeData2() {
         return someData2;
     }
-
     public void setSomeData2(String someData2) {
         this.someData2 = someData2;
     }
-
     @Override
     public String toString() {
         return "TestData{" +

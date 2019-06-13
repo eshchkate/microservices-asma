@@ -18,27 +18,22 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-
     @Autowired
     private CustomAccessTokenConverter customAccessTokenConverter;
-
     @Override
     public void configure(final HttpSecurity http) throws Exception {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 .and()
                 .authorizeRequests().anyRequest().permitAll();
     }
-
     @Override
     public void configure(final ResourceServerSecurityConfigurer config) {
         config.tokenServices(tokenServices());
     }
-
     @Bean
     public TokenStore tokenStore() {
         return new JwtTokenStore(accessTokenConverter());
     }
-
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         final JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
@@ -47,7 +42,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         converter.setVerifierKey("secret");
         return converter;
     }
-
     @Bean
     @Primary
     public DefaultTokenServices tokenServices() {
@@ -55,5 +49,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         defaultTokenServices.setTokenStore(tokenStore());
         return defaultTokenServices;
     }
-
 }

@@ -14,11 +14,9 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 @EnableTurbine
 public class RibbonClientApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(RibbonClientApplication.class, args);
     }
-
     @Bean
     @LoadBalanced
     public RestTemplate getTemplate() {

@@ -12,7 +12,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
-
+#  boot:
+ #   admin:
+  #    client:
+  #      url: http://localhost:8888
 hystrix:
   enabled: true
 
